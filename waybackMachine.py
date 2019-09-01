@@ -16,4 +16,11 @@ class waybackMachineClass():
 
 wbm = waybackMachineClass(sys.argv[1])
 for row in wbm.getUrls():
-    print(row[0])
+    cut = row[0].split(sys.argv[1])
+    
+    if row[0] == "original":
+        continue
+    elif cut[1].startswith(":80"):
+        print(cut[1].replace(":80",""))
+    else:
+        print(cut[1])
